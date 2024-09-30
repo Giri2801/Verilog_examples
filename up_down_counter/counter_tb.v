@@ -17,9 +17,11 @@
     initial begin
         Clk = 0;
         reset = 0;
+        UpOrDown = 1;
+        #85
         UpOrDown = 0;
       	 $monitor("Time = %0t, Clk=%0b, Up/Down=%0b , Count=%0d",$time,Clk,UpOrDown,Count); 
-           #155 $finish;
+           #70 $finish;
     end
       
 endmodule
