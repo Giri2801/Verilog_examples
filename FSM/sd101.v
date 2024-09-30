@@ -21,6 +21,8 @@ reg [1:0]state;
           dout <=1'b0;
           if(din)
             state <= S1;
+          else
+            state <= S0;
         end
         S1: begin
           dout <= 1'b0;
@@ -28,14 +30,18 @@ reg [1:0]state;
             state <= S2;
         end
         S2: begin
-          dout <= 1'b0;
-          if(din)
+          
+          if(din) begin
             state <= S3;
-          else
+            dout <= 1'b1;
+          end
+          else begin
             state <= S0;
+            dout <= 1'b0;
+          end
         end
         S3: begin
-          dout <= 1'b1;
+          dout <= 1'b0;
           if(din)
             state <= S1;
           else
