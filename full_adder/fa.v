@@ -2,7 +2,7 @@ module ha(a,b,sum,carry);
 
   input a,b; 
 
-  output reg sum, carry; 
+  output sum, carry; 
 
   assign sum = a^b; 
 
