@@ -1,10 +1,14 @@
-module sd101(input bit clk,
-                   input logic reset,
-                   input logic din,
-                   output logic dout);
+module sd101(input clk,
+                   input reset,
+                   input din,
+                   output reg dout);
 
-  typedef enum logic [1:0] {S0, S1, S2, S3} state_t;
-  state_t state;
+parameter S0 = 2'b00,
+          S1 = 2'b01,
+          S2 = 2'b10,
+          S3 = 2'b11;
+
+reg [1:0]state;
 
   always @(posedge clk or posedge reset) begin
     if(reset) begin
